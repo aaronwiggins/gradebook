@@ -2,7 +2,7 @@
 This is an app that will allow teachers, parents and students to track grades. each class.
 
 ##Overview
-This app has three users that will be using this program; teachers, students, and parents. Based on the login authentication, users will be taken to a "dashboard" which corresponds to their account type (ie teacher).
+This app has three users that will be using this program: teachers, students, and parents. Based on the login authentication, users will be taken to a "dashboard" which corresponds to their account type (ie teacher).
 
 Teachers are given access to create new teachers, create and edit grades for their students, create new students associated with them, and create parents which belong to their students. Students are only able to view their grades. Parents are only able to view their students grades. Any user will be able to edit their password if they choose to.
 
