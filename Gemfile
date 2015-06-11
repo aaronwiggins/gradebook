@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
+gem 'rails-footnotes', '~> 4.0'
+
 gem 'neat'
 gem 'bourbon'
 gem 'faker'

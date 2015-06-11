@@ -1,10 +1,12 @@
 class ParentsController < ApplicationController
+  before_action :logged_in?
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
 
   # GET /parents
   # GET /parents.json
   def index
     @parents = Parent.all
+    
   end
 
   # GET /parents/1
@@ -29,10 +31,8 @@ class ParentsController < ApplicationController
     respond_to do |format|
       if @parent.save
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
-        format.json { render :show, status: :created, location: @parent }
       else
         format.html { render :new }
-        format.json { render json: @parent.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +43,8 @@ class ParentsController < ApplicationController
     respond_to do |format|
       if @parent.update(parent_params)
         format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
-        format.json { render :show, status: :ok, location: @parent }
       else
         format.html { render :edit }
-        format.json { render json: @parent.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +55,6 @@ class ParentsController < ApplicationController
     @parent.destroy
     respond_to do |format|
       format.html { redirect_to parents_url, notice: 'Parent was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -70,5 +67,11 @@ class ParentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
       params.require(:parent).permit(:name, :email, :password_digest, :student_id)
+    end
+
+    def logged_in?
+      # if session[:user_type] != "parent"
+      #   redirect_to sessions_login_path, notice: "You can't access that page."
+      # end
     end
 end
