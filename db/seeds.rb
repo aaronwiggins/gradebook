@@ -12,6 +12,6 @@
       password: "password", teacher_id: teacher.id)
   Parent.create!(name: Faker::Name.name, email: "#{count+1}@parent.com",
       password: "password", student_id: student.id)
-  Grade.create!(assignment: Faker::Name.name, score: Faker::Number.number(2),
+  Grade.create!(assignment: Faker::Company.catch_phrase, score: Faker::Number.number(2),
       student_id: student.id)
 end

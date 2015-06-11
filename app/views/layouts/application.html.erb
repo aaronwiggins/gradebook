@@ -9,6 +9,13 @@
 <body>
 
 <%= yield %>
+<div>
+<% if session[:user_type] == "student" %>
+  <%= link_to "Edit Password", edit_student_path(session[:user_id]) %>
+<% elsif session[:user_type] == "parent" %>
+  <%= link_to "Edit Password", edit_parent_path(session[:user_id]) %>
+<% end %>
+</div>
 <div class="logout">
   <%= link_to "Logout", sessions_logout_path if session[:user_id] %></br>
 </div>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teachers Dashboard</h1><br>
+<h1>Teacher's Dashboard</h1><br>
 <h2>Welcome <%= @teacher.name %></h2><br>
 
 <table>
@@ -17,8 +17,6 @@
       <tr>
         <td><%= s.name %></td>
         <td><%= s.email %></td>
-        <th><%= link_to 'New Student', new_student_path(student_id: s.id) %></td>
-        <td><%= link_to 'Show Current Student', s %></td>
         <td><%= link_to 'Edit Current Student', edit_student_path(s) %></td>
         <td><%= link_to 'Add Parent', new_parent_path(student_id: s.id) %></td>
         <td><%= link_to 'Destroy', s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,5 +31,15 @@
 <% end %>
 
 <br>
+<div>
+  <% if session[:user_type] == "teacher" %>
+    <%= link_to "Edit Password", edit_teacher_path(session[:user_id]) %>
+  <% end %>
+</div>
+<div>
+  <%= link_to 'New Student', new_student_path(student_id: session[:user_id]) %>
+</div>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<div>
+  <%= link_to 'Add New Teacher', new_teacher_path %>
+</div>
