@@ -24,12 +24,11 @@
     <% end %>
   </tbody>
 </table>
-<% @student.grades.each do |g| %>
+<% @students.grades.each do |g| %>
   <div><%= g.assignment %></div>
   <div><%= g.score %></div>
-  <div><%= link_to 'Edit Grades', edit_grade_path(g) %></div>
-<% end %>
-
+<% end %><br>
+<div><%= link_to 'Add Grade', new_grade_path(student_id: @students.id) %></div>
 <br>
 <div>
   <% if session[:user_type] == "teacher" %>

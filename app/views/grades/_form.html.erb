@@ -19,6 +19,9 @@
     <%= f.label :score %><br>
     <%= f.text_field :score %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :student_id, :value => session[:user_id] %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
