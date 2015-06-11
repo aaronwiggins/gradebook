@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1>Hello <%= @student.name %></h1><br>
-<h1>Student Grades</h1></br>
+<% if session[:user_type] == "student" %>
+  <h1>Hello <%= @student.name %></h1><br>
+  <h3>Your Grades</h3></br>
+<% else %>
+  <h1>Hello <%= @student.parents.find(session[:user_id]).name %><h1><br>
+  <h3><%= @student.name %>'s grades</h3>
+<% end %>
 
 <table>
   <thead>
@@ -22,5 +27,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Student', new_student_path %>

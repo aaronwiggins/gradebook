@@ -5,8 +5,9 @@ class ParentsController < ApplicationController
   # GET /parents
   # GET /parents.json
   def index
-    @parents = Parent.all
-    
+    @parent = Parent.find(session[:user_id])
+    @student = Student.find(@parent.student_id)
+    redirect_to students_path(@student)
   end
 
   # GET /parents/1
